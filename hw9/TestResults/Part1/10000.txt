@@ -1,0 +1,12 @@
+>> [ bestVector, bestScore ] = SimpleGA_Sasarak_Sun( 10000, 200, 20000, 0.7, 0.5, 'Mutation', 1 )
+
+bestVector =
+	...
+
+
+bestScore =
+
+        9915
+
+
+>> SimpleGA_Main_Sasarak_Sun
