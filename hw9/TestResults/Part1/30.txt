@@ -1,0 +1,16 @@
+>> [ bestVector, bestScore ] = SimpleGA_Sasarak_Sun( 30, 50, 100, 0.7, 0.5, 'OnePointCrossover', 1 )
+
+bestVector =
+
+  Columns 1 through 22
+
+     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1     1
+
+  Columns 23 through 30
+
+     1     1     1     1     1     1     1     1
+
+
+bestScore =
+
+    30

@@ -1,0 +1,31 @@
+>> [ W, bestError ] = EvolveXOR_GA_Sasarak_Sun(2, 100, 1000, 0.5, 0.5, 'Mutation', 1 )
+err1 = 0  Iin1 = 1  Iin2 = 1  x2out = 1.5296e-187
+err1 = 0  Iin1 = 1  Iin2 = 0  x2out = 1
+err1 = 0  Iin1 = 0  Iin2 = 1  x2out = 1
+err1 = 0  Iin1 = 0  Iin2 = 0  x2out = 8.7612e-164
+
+W =
+
+  267.2238 -500.2740 -156.0718         0         0
+ -469.9477  415.2429 -375.4536  905.7986         0
+
+
+bestError =
+
+     0
+
+>> [ W, bestError ] = EvolveXOR_GA_Sasarak_Sun(2, 100, 1000, 0.5, 0.5, 'Mutation', 1 )
+err1 = 5.1682e-163  Iin1 = 1  Iin2 = 1  x2out = 2.0333e-100
+err1 = 5.1682e-163  Iin1 = 1  Iin2 = 0  x2out = 1
+err1 = 5.1682e-163  Iin1 = 0  Iin2 = 1  x2out = 1
+err1 = 5.1682e-163  Iin1 = 0  Iin2 = 0  x2out = 7.189e-82
+
+W =
+
+  102.8200 -450.5097  -92.8746         0         0
+ -266.3284  223.6189 -186.8394  616.4184         0
+
+
+bestError =
+
+  5.1682e-163

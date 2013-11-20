@@ -1,0 +1,15 @@
+>> [ W, bestError ] = EvolveXOR_ES2_Sasarak_Sun( 2, 20, 100, 1000, 'Mutation', 1 )
+err1 = 0.00036157  Iin1 = 1  Iin2 = 1  x2out = -0.011766
+err1 = 0.00036157  Iin1 = 1  Iin2 = 0  x2out = 1
+err1 = 0.00036157  Iin1 = 0  Iin2 = 1  x2out = 1
+err1 = 0.00036157  Iin1 = 0  Iin2 = 0  x2out = -0.014937
+
+W =
+
+   77.9992   21.0068  -97.3970         0         0
+   42.9002   32.2774  -39.1069  -39.0919         0
+
+
+bestError =
+
+   3.6157e-04
