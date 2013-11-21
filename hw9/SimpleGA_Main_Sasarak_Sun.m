@@ -25,7 +25,7 @@ for i = 1 : generation/round
     
     disp(bestScore);
     
-    if bestScore == 10000
+    if bestScore == length
         break;
     end
 end
