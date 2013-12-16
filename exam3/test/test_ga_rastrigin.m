@@ -12,7 +12,7 @@ length = 1;
 % number of iterations to run
 population = 300;
 % number of iterations to run
-generation = 200;
+generation = 1000;
 % convolution kernel size
 filterSize = 3;
 % Fish density threshold for determining which minima/maxima to return
@@ -31,8 +31,8 @@ end
 newPop = [x score];
 % show init figure
 hold on;
-plot(X, z);
-plot(newPop(:, 1), newPop(:, 2), 'b*');
+plot(X, z), axis on, xlabel('x'), ylabel('f(x)'), title('1D Rastrigin function');
+plot(newPop(:, 1), newPop(:, 2), 'b.');
 
 for i = 1:generation
     sortedPop = sortrows(newPop, length + 1);
@@ -67,7 +67,7 @@ for i = 1:generation
 end
 
 % disp(newPop);
-plot(newPop(:, 1), newPop(:, 2), 'g*');
+plot(newPop(:, 1), newPop(:, 2), 'g.');
 
 % mark out significant points
 densityPop = sortrows(newPop, 1);

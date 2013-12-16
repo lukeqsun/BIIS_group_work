@@ -1,38 +1,38 @@
 clear;
 
-X = [-2:0.1:2];
+X = [-5:0.1:5];
 [row,col]=size(X);
 for l=1:col
 %    for h=1:row
-        z(l)=Ackley(X(l),0);
+        z(l)=Rastrigin(X(l),0);
 %    end
 end
 
 length = 1;
 % number of iterations to run
-population = 100;
+population = 300;
 % number of iterations to run
 generation = 200;
 % convolution kernel size
 filterSize = 3;
 % Fish density threshold for determining which minima/maxima to return
-minDensity = 1;
-densityRange = 1;
+minDensity = 20;
+densityRange = 0.1;
 
-minX = -2;
-maxX = 2;
+minX = -5;
+maxX = 5;
 
-x = -2 + rand(population, length) * 4;
+x = -5 + rand(population, length) * 10;
 [row,col]=size(x);
 for l=1:row
-        score(l, 1)=Ackley(x(l),0);
+        score(l, 1)=Rastrigin(x(l),0);
 end
 
 newPop = [x score];
 % show init figure
 hold on;
-plot(X, z), axis on, xlabel('x'), ylabel('f(x)'), title('1D Ackley function');
-plot(newPop(:, 1), newPop(:, 2), 'b.');
+plot(X, z);
+plot(newPop(:, 1), newPop(:, 2), 'b*');
 
 for i = 1:generation
     sortedPop = sortrows(newPop, length + 1);
@@ -48,7 +48,7 @@ for i = 1:generation
     childPop = imfilter(parentPop, filter);
     
     for l=1:row
-        score(l, 1)=Ackley(childPop(l),0);
+        score(l, 1)=Rastrigin(childPop(l),0);
     end
     
     % Place children into population
@@ -67,7 +67,7 @@ for i = 1:generation
 end
 
 % disp(newPop);
-plot(newPop(:, 1), newPop(:, 2), 'g.');
+plot(newPop(:, 1), newPop(:, 2), 'g*');
 
 % mark out significant points
 densityPop = sortrows(newPop, 1);
@@ -97,7 +97,6 @@ for m=2:population
     last = densityPop(m, :);
 end
 
-%{
 disp(densityResult);
 
 densityResult = sortrows(densityResult, 3);
@@ -105,6 +104,5 @@ dsum = sum(densityResult(:, 3));
 for n=1:c-1
     plot(densityResult(n, 1), densityResult(n, 2), 'rO', 'MarkerSize', densityResult(n, 3)/dsum * 40 + 1, 'MarkerFaceColor',[1,0,0]);
 end
-%}
 
 hold off;

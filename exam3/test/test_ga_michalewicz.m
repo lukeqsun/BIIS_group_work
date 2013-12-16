@@ -10,11 +10,14 @@ end
 
 length = 1;
 % number of iterations to run
-population = 40;
+population = 100;
 % number of iterations to run
-generation = 20;
+generation = 200;
 % convolution kernel size
 filterSize = 3;
+% Fish density threshold for determining which minima/maxima to return
+minDensity = 30;
+densityRange = 0.1;
 
 minX = -3;
 maxX = 3;
@@ -28,8 +31,8 @@ end
 newPop = [x score];
 % show init figure
 hold on;
-plot(X, z);
-plot(newPop(:, 1), newPop(:, 2), 'r*');
+plot(X, z), axis on, xlabel('x'), ylabel('f(x)'), title('1D Michalewicz function');
+plot(newPop(:, 1), newPop(:, 2), 'b.');
 
 for i = 1:generation
     sortedPop = sortrows(newPop, length + 1);
@@ -37,7 +40,7 @@ for i = 1:generation
     % generate filter
     s = std(newPop, 0, 1);
     filter = [sortedPop(1, 1) - s(1); sortedPop(population/2, 1) - s(1); sortedPop(population, 1) - s(1)];
-    disp(filter);
+    % disp(filter);
     
     % Create a mating pool
     % parentPop = [0; sortedPop(:, 1); 0];
@@ -63,6 +66,44 @@ for i = 1:generation
     % plot(newPop(:, 1), newPop(:, 2), 'r*');
 end
 
-disp(newPop);
-plot(newPop(:, 1), newPop(:, 2), 'g*');
+% disp(newPop);
+plot(newPop(:, 1), newPop(:, 2), 'g.');
+
+% mark out significant points
+densityPop = sortrows(newPop, 1);
+last = densityPop(1, :);
+densityCount = 0;
+densityGroup(1, :) = last;
+g = 2;
+c = 1;
+for m=2:population
+    tempDist = pdist([last; densityPop(m, :)],'euclidean');
+    if tempDist > densityRange
+        densityCount = densityCount + 1;
+        densityGroup(g, :) = densityPop(m, :);
+        g = g + 1;
+    else
+        if densityCount > minDensity
+            densityGroup = sortrows(densityGroup, 2);
+            densityResult(c, 1:2) = densityGroup(1, :);
+            densityResult(c, 3) = g - 1;
+            c = c + 1;
+            densityCount = 0;
+            densityGroup = [0, 0];
+            g = 1;
+        end
+    end
+    
+    last = densityPop(m, :);
+end
+%{
+disp(densityResult);
+
+densityResult = sortrows(densityResult, 3);
+dsum = sum(densityResult(:, 3));
+for n=1:c-1
+    plot(densityResult(n, 1), densityResult(n, 2), 'rO', 'MarkerSize', densityResult(n, 3)/dsum * 40 + 1, 'MarkerFaceColor',[1,0,0]);
+end
+%}
+
 hold off;
