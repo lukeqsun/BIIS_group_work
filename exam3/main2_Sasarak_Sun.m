@@ -18,14 +18,14 @@ score = ObjectiveFunction2_Sasarak_Sun(initPop(:, 1), initPop(:, 2));
 lastPop = [ initPop score ];
 
 % define the threshold for hierarchical clustering
-density = 0.01;
+density = 0.05;
 
 % define the minimum member size of the clusters which will be considered as
 % features of the objective function
-minClustSize = 0;
+minClustSize = 1;
 
 % SchoolingFish2_Sasarak_Sun(newPop, inputRange, popSize, maxPopSize, filterSize, density, generation, pruneProbability)
-[ newPop ] = SchoolingFish2_Sasarak_Sun(lastPop, inputRange, popSize, 500, 5, density, 30, 0.6);
+[ newPop ] = SchoolingFish2_Sasarak_Sun(lastPop, inputRange, popSize, 500, 5, density, 15, 0.6);
 
 % drawing the initial population
 plot3(initPop(:, 1), initPop(:, 2), score, 'b.');
