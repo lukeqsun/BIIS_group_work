@@ -1,4 +1,4 @@
-function [ Z ] = ObjectiveFunction1( X )
+function [ Z ] = ObjectiveFunction1_Sasarak_Sun( X )
 %The one dimensional objective function used for the GA.
 %   The objecttive funcctional will be called in SchoolingFish1_Sasarak_Sun
 %   for measuring the fitness. 
@@ -14,11 +14,11 @@ function [ Z ] = ObjectiveFunction1( X )
     end
     
     for l=1:d
-        % t = Ackley( X(l), 0 );
+        % t = Ackley_Sasarak_Sun( X(l), 0 );
 
-        % t = Michalewicz( X(l), 0 );
+        % t = Michalewicz_Sasarak_Sun( X(l), 0 );
             
-        t = Rastrigin( X(l), 0 );
+        t = Rastrigin_Sasarak_Sun( X(l), 0 );
         
         Z(l) = t;
     end
