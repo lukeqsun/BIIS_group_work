@@ -24,7 +24,7 @@ density = 0.06;
 minClustSize = 0;
 
 % SchoolingFish1_Sasarak_Sun(newPop, inputRange, popSize, maxPopSize, filterSize, density, generation, pruneProbability)
-[ newPop ] = SchoolingFish1_Sasarak_Sun(lastPop, inputRange, popSize, 500, 5, density, 24, 0.6);
+[ newPop ] = SchoolingFish1_Sasarak_Sun(lastPop, inputRange, popSize, 500, 5, density, 30, 0.6);
 
 % drawing the initial population
 plot(initPop, score, 'b.');

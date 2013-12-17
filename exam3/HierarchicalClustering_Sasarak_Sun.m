@@ -1,4 +1,4 @@
-function [ hidx, sortedClustCount ] = HierarchicalClustering1_Sasarak_Sun( data, threshold )
+function [ hidx, sortedClustCount ] = HierarchicalClustering_Sasarak_Sun( data, threshold )
 % Devide the data into groups by hierarchical clustering
 %   Return
 %   hidx - the hierarchical index of the data

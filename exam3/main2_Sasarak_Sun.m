@@ -24,7 +24,7 @@ density = 0.01;
 % features of the objective function
 minClustSize = 0;
 
-% SchoolingFish1_Sasarak_Sun(newPop, inputRange, popSize, maxPopSize, filterSize, density, generation, pruneProbability)
+% SchoolingFish2_Sasarak_Sun(newPop, inputRange, popSize, maxPopSize, filterSize, density, generation, pruneProbability)
 [ newPop ] = SchoolingFish2_Sasarak_Sun(lastPop, inputRange, popSize, 500, 5, density, 30, 0.6);
 
 % drawing the initial population

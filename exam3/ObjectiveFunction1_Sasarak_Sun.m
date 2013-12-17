@@ -1,10 +1,29 @@
-%% Example Title
-% Summary of example objective
+function [ Z ] = ObjectiveFunction1_Sasarak_Sun( X )
+%The one dimensional objective function used for the GA.
+%   The objecttive funcctional will be called in SchoolingFish1_Sasarak_Sun
+%   for measuring the fitness. 
+%   Remove/add the "%" symbol to enable/disable the function preferred. 
+    
+    [row,col]=size(X);
+    
+    % handling 1 by N or N by 1 matrix
+    if col == 1
+        d = row;
+    else
+        d = col;
+    end
+    
+    for l=1:d
+        % t = Ackley_Sasarak_Sun( X(l), 0 );
 
-%% Section 1 Title
-% Description of first code block
-a=1;
-
-%% Section 2 Title
-% Description of second code block
-a=2;
+        % t = Michalewicz_Sasarak_Sun( X(l), 0 );
+            
+        t = Rastrigin_Sasarak_Sun( X(l), 0 );
+        
+        Z(l) = t;
+    end
+    
+    if col == 1
+        Z = rot90(Z, -1);
+    end
+end
