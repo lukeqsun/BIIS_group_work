@@ -8,11 +8,11 @@ function [ Z ] = ObjectiveFunction2_Sasarak_Sun( X, Y )
     
     for l=1:col
         for h=1:row
-            %Z(l, h) = Ackley_Sasarak_Sun( X(l), Y(l) );
+            %Z(h, l) = Ackley_Sasarak_Sun( X(h,l),Y(h,l) );
 
-            %Z(l, h) = Michalewicz_Sasarak_Sun( X(l), Y(l) );
+            %Z(h, l) = Michalewicz_Sasarak_Sun( X(h,l),Y(h,l) );
 
-            Z(l, h) = Rastrigin_Sasarak_Sun( X(l), Y(l) );
+            Z(h, l) = Rastrigin_Sasarak_Sun( X(h,l),Y(h,l) );
         end
     end
 

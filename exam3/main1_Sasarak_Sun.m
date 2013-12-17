@@ -19,12 +19,12 @@ lastPop = [ initPop score ];
 % define the threshold for hierarchical clustering
 density = 0.06;
 
-% define the minimum size of the clusters which will be considered as
+% define the minimum member size of the clusters which will be considered as
 % features of the objective function
 minClustSize = 0;
 
 % SchoolingFish1_Sasarak_Sun(newPop, inputRange, popSize, maxPopSize, filterSize, density, generation, pruneProbability)
-[ newPop ] = SchoolingFish1_Sasarak_Sun(lastPop, inputRange, popSize, 500, 5, density, 100, 0.6);
+[ newPop ] = SchoolingFish1_Sasarak_Sun(lastPop, inputRange, popSize, 500, 5, density, 24, 0.6);
 
 % drawing the initial population
 plot(initPop, score, 'b.');
@@ -33,7 +33,7 @@ plot(initPop, score, 'b.');
 plot(newPop(:, 1), newPop(:, 2), 'g.');
 
 % calculate the number of the features detected and display the clusters
-[ hidx, sortedClustCount ] = HierarchicalClustering1_Sasarak_Sun(newPop, density);
+[ hidx, sortedClustCount ] = HierarchicalClustering_Sasarak_Sun(newPop, density);
 
 for i = 1:max(hidx)
     if sortedClustCount(i, 2) > minClustSize

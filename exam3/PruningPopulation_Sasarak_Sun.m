@@ -3,7 +3,7 @@
 currentSize = size(newPop, 1);
 while currentSize > popSize
     % clustering the new population
-    [ hidx, sortedClustCount ] = HierarchicalClustering1_Sasarak_Sun(newPop, density);
+    [ hidx, sortedClustCount ] = HierarchicalClustering_Sasarak_Sun(newPop, density);
     
     % At least, we keep one cluster
     if max(hidx) < 2

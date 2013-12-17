@@ -56,7 +56,7 @@ for g = 1:generation
             else
                 % if the population reaches the maximum affordable size,
                 % pruning the population
-                PruningPopulation1_Sasarak_Sun;
+                PruningPopulation_Sasarak_Sun;
             end
         end
     end
@@ -64,10 +64,10 @@ for g = 1:generation
     % Pruning the population to the initial size according to the probability
     % or if the population reaches the maximum affordable size
     if (rand < pruneProbability && g > 1) || p > maxPopSize
-        PruningPopulation1_Sasarak_Sun;
+        PruningPopulation_Sasarak_Sun;
     end
 end
 
-PruningPopulation1_Sasarak_Sun;
+PruningPopulation_Sasarak_Sun;
 
 end
